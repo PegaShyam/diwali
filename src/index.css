@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Margarine&display=swap');
+
+@import "tailwindcss";
+
+/* ===== Global Styling ===== */
+
+@theme{
+    --font-marg: "Margarine", sans-serif;
+    --font-geist: "Geist", sans-serif;
+}
+
+html, body {
+  @apply bg-black text-black min-h-screen overflow-x-hidden select-none tracking-wide;
+  scroll-behavior: smooth;
+  font-family: var(--font-marg);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+button, input {
+  @apply outline-none focus:outline-none;
+}
+
+/* ===== Arcade Glow ===== */
+.arcade-glow {
+  text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff00ff, 0 0 32px #ff00ff;
+}
+
+/* ===== Balloon Float Animation ===== */
+.balloon {
+  @apply absolute bottom-0 w-10 h-14 rounded-full opacity-0;
+  animation: floatUp 6s ease-in infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+}
+
+/* ===== Cake Candle Flicker ===== */
+.candle-flame {
+  animation: candleFlicker 0.4s infinite alternate;
+}
+@keyframes candleFlicker {
+  from { transform: scale(1) translateY(0); opacity: 0.95; }
+  to { transform: scale(1.1) translateY(-2px); opacity: 1; }
+}
+
+/* ===== Greeting Card Pop Animation ===== */
+.greeting-card {
+  @apply scale-75 opacity-0 transition-all duration-700 ease-out;
+}
+.greeting-card.reveal {
+  @apply scale-100 opacity-100;
+}
+.bg-gradient{
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=fcf4ba&c2=d1d62a&gt=r&gd=dcc
+*/
+background: #FCF4BA;
+background: radial-gradient(at center, #FCF4BA, #D1D62A);
+}
